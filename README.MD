@@ -39,11 +39,11 @@ The goal was to learn low-level system emulation and SDL2, while building someth
 │       ├── instructions.h
 │       └── screen.h
 └── test-roms/              # Sample CHIP-8 programs
-├── pong.ch8
-├── tank.ch8
-├── bmp\_hello.ch8
-├── keypad\_test.ch8
-├── ...
+    ├── pong.ch8
+    ├── tank.ch8
+    ├── bmp\_hello.ch8
+    ├── keypad\_test.ch8
+    ├── ...
 
 ````
 
@@ -81,22 +81,12 @@ make
 ./out/main path/to/rom.ch8
 ```
 
-Or using Make:
 
-```bash
-make run path/to/rom.ch8
-```
 
 Example:
 
 ```bash
 make run test-roms/pong.ch8
-```
-
-💡 If the file path contains spaces, wrap it in quotes:
-
-```bash
-make run "test-roms/Clock Program [Bill Fisher, 1981].ch8"
 ```
 
 ### Clean
