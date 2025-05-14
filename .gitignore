@@ -1,0 +1,25 @@
+# Ignore compiled output
+/out/
+*.o
+*.exe
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Editor/IDE configs
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# Backup files
+*~
+
+
+
+# Ignore anything with ":Zone.Identifier" from Windows
+*Zone.Identifier
