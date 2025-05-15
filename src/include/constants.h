@@ -8,3 +8,5 @@ typedef int bool;
 
 #define true 1
 #define false 0
+
+#define MAX_ROM_SIZE 4096

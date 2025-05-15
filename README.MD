@@ -86,7 +86,7 @@ make
 Example:
 
 ```bash
-make run test-roms/pong.ch8
+./out/main test-roms/pong.ch8
 ```
 
 ### Clean

@@ -9,7 +9,7 @@ typedef struct
     uint16_t I;
     uint16_t sp;
     uint8_t V[16];
-    uint8_t memory[4096];
+    uint8_t memory[MAX_ROM_SIZE];
     uint16_t stack[16];
     bool key[16];
     uint8_t delay_timer;

@@ -3,6 +3,7 @@
 #include "include/instructions.h"
 #include "include/constants.h"
 #include "include/screen.h"
+#include "include/io.h"
 #include <stdlib.h>
 
 uint8_t font_set[80] = {
@@ -23,23 +24,6 @@ uint8_t font_set[80] = {
     0xF0, 0x80, 0xF0, 0x80, 0xF0, // E
     0xF0, 0x80, 0xF0, 0x80, 0x80  // F
 };
-
-void print_keys(CPU *cpu)
-{
-    printf("-------- CPU KEYS ---------\n");
-    for (uint8_t i = 0; i <= 0xF; i++)
-    {
-        printf("K[%d]: 0x%X\n", i, cpu->key[i]);
-    }
-    printf("---------------------------\n");
-}
-
-void print_timers(CPU *cpu)
-{
-    printf("-------- CPU TIMERS ---------\n");
-    printf("Delay Timer: %d\nSound Timer: %d\n", cpu->delay_timer, cpu->sound_timer);
-    printf("---------------------------\n");
-}
 
 void clear_memory(CPU *cpu)
 {
@@ -119,34 +103,6 @@ void reset(CPU *cpu)
     cpu->waitingForKeypress = false;
 }
 
-void load_program(CPU *cpu, uint8_t *program, int size)
-{
-    for (int i = 0; i < size; i++)
-    {
-        cpu->memory[0x200 + i] = program[i];
-    }
-
-    printf("Program loaded. \nMemory used: %d bytes.\n", size);
-    print_program(cpu, size);
-}
-
-void print_stats(CPU *cpu)
-{
-    printf("-------- CPU STATS --------\n");
-    printf("SP: 0x%X\nPC: 0x%X\nI: 0x%X\n", cpu->sp, cpu->pc, cpu->I);
-    printf("---------------------------\n");
-}
-
-void print_registers(CPU *cpu)
-{
-    printf("-------- CPU REGISTERS --------\n");
-    for (uint8_t i = 0; i <= 0xF; i++)
-    {
-        printf("V[%X]:\t0x%X\n", i, cpu->V[i]);
-    }
-    printf("---------------------------\n");
-}
-
 void push(CPU *cpu, uint16_t val)
 {
     if (cpu->sp >= 16)
@@ -172,14 +128,6 @@ void print_stack(CPU *cpu)
         printf("0x%X\t", cpu->stack[i]);
     }
     printf("\n");
-}
-
-void print_program(CPU *cpu, int program_size)
-{
-    for (int i = 0x200; i < program_size; i++)
-    {
-        printf("0x%X ", cpu->memory[i]);
-    }
 }
 
 void draw_sprite(CPU *cpu, int reg_x, int reg_y, uint8_t height)
