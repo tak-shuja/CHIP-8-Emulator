@@ -57,8 +57,8 @@ The goal was to learn low-level system emulation and SDL2, while building someth
 └── test-roms/              # Sample CHIP-8 programs
     ├── pong.ch8
     ├── tank.ch8
-    ├── bmp\_hello.ch8
-    ├── keypad\_test.ch8
+    ├── bmp_hello.ch8
+    ├── keypad_test.ch8
     ├── ...
 
 ````
