@@ -4,12 +4,28 @@
 A CHIP-8 emulator written in C using SDL2.
 This was built from scratch as a learning project — no external libraries besides SDL2, and minimal references.
 
+
+
 ## 📌 Overview
 
 CHIP-8 is a simple interpreted programming language used on some vintage 1970s microcomputers.
 This project emulates its virtual machine, including graphics, memory, input, and timers.
 
 The goal was to learn low-level system emulation and SDL2, while building something cool from the ground up.
+
+## 📸 Screenshots
+
+### BMP Viewer ROM
+![BMP Viewer](images/hello_bmp.png)
+
+### IBM Logo
+![IBM Logo](images/ibm_logo.png)
+
+### Keypad Test
+![Keypad Test](images/keypad_test.png)
+
+
+
 
 ## ✅ Current Features
 
