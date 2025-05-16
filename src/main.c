@@ -41,10 +41,13 @@ int main(int argc, char **argv)
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     int running = 1;
+    const int cycles_per_frame = 10;
     SDL_Event event;
 
     while (running)
     {
+        // time at start of the frame
+        uint32_t frame_start = SDL_GetTicks();
         // SDL2 main event loop
         while (SDL_PollEvent(&event))
         {
@@ -61,9 +64,15 @@ int main(int argc, char **argv)
             cpu.waitingForKeypress = false;
         }
 
-        execute_cycle(&cpu);
+        // to achieve 600 cycles per second, we must emulate
+        // 10 cycles per frame (60fps)
+        // so each frame will have 10 executions
+        for (int i = 0; i < cycles_per_frame; i++)
+        {
+            execute_cycle(&cpu);
+        }
 
-        // Update timers
+        // Update timers once per frame
         if (cpu.delay_timer > 0)
         {
             cpu.delay_timer--;
@@ -90,8 +99,15 @@ int main(int argc, char **argv)
 
         // Update the screen to reflect changes
         SDL_RenderPresent(renderer);
-        // delay of 1ms to keep a constant frame rate
-        SDL_Delay(1);
+
+        // how long this frame took
+        uint32_t frame_time = SDL_GetTicks() - frame_start;
+
+        if (frame_time < FRAME_DELAY)
+        {
+            // Wait to match 60fps
+            SDL_Delay(FRAME_DELAY - frame_time);
+        }
     }
 
     SDL_DestroyRenderer(renderer);

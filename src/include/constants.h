@@ -10,3 +10,6 @@ typedef int bool;
 #define false 0
 
 #define MAX_ROM_SIZE 4096
+
+#define TARGET_FPS 60
+#define FRAME_DELAY (1000 / TARGET_FPS) // ~ 16ms
