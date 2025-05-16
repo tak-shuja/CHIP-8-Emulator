@@ -119,6 +119,8 @@ void handleKeyInput(SDL_Event event, CPU *cpu)
   }
 }
 
+
+
 // Function to load a CHIP-8 ROM
 int load_rom(const char *filename, uint8_t *memory)
 {
@@ -160,6 +162,7 @@ int load_rom(const char *filename, uint8_t *memory)
   return 0; // Success
 }
 
+
 void print_keys(CPU *cpu)
 {
   printf("-------- CPU KEYS ---------\n");
@@ -169,6 +172,7 @@ void print_keys(CPU *cpu)
   }
   printf("---------------------------\n");
 }
+
 
 void print_timers(CPU *cpu)
 {

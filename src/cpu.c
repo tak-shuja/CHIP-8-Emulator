@@ -183,16 +183,8 @@ void execute_8xy_opcode(CPU *cpu, int reg_x, int reg_y, int last_byte)
     case 4:
     {
         uint8_t sum = cpu->V[reg_x] + cpu->V[reg_y];
-        // cpu->V[0xF] = (sum > 0xFF) ? 1 : 0;
+        cpu->V[0xF] = (sum > 0xFF) ? 1 : 0;
 
-        if (sum > 0xFF)
-        {
-            cpu->V[0xF] = 1;
-        }
-        else
-        {
-            cpu->V[0xF] = 0;
-        }
         cpu->V[reg_x] += cpu->V[reg_y];
         break;
     }
@@ -228,6 +220,7 @@ int fetch_instruction(CPU *cpu)
 {
     return cpu->memory[cpu->pc] << 8 | cpu->memory[cpu->pc + 1];
 }
+
 void execute(CPU *cpu, int instruction, int *running)
 {
     uint8_t reg_x, reg_y, reg;
