@@ -26,7 +26,5 @@ uint16_t pop(CPU *);
 void print_stack(CPU *);
 void execute_cycle(CPU *);
 void print_registers(CPU *);
-void load_program(CPU *, uint8_t *, int);
-void print_program(CPU *, int);
 void print_keys(CPU *);
 void print_timers(CPU *);

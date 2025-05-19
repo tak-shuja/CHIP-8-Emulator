@@ -236,6 +236,10 @@ void execute(CPU *cpu, int instruction, int *running)
 
     switch (instruction)
     {
+
+    case 0x0000:
+        break;
+
     case CLEAR:
         clear_screen(cpu);
         break;
